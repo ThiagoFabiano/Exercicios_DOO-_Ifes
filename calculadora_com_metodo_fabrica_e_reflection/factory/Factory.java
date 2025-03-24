@@ -3,6 +3,18 @@ import calculadora_com_metodo_fabrica_e_reflection.model.Operacao;
 
 public class Factory {
 
+    private static Factory instance; 
+
+    private Factory() {
+    }
+
+    public static Factory getInstance() {
+        if (instance == null) {
+            instance = new Factory();
+        }
+        return instance;
+    }
+
     public static Operacao factory(char operador) {
 
         Object classeInstanciada = null;
